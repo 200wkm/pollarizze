@@ -1,0 +1,367 @@
+---
+// Footer Component
+import { BUSINESS } from "@data/client";
+import navData from "@data/navData.json";
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="first-footer-grid">
+      <div class="footer-widget">
+        <div class="footer-newsletters-wrapper">
+          <h3 class="footer-newsletters-title">Subscribe to our newsletter</h3>
+          <p class="footer-desc">Whether you're looking to save more, invest wisely, or plan for a secure future, we've got you covered.</p>
+          <div class="footer-from-block">
+            <form class="footer-form" action="#" method="post">
+              <input type="email" class="footer-text-field" placeholder="Enter email address" required aria-label="Email address" />
+              <button type="submit" class="footer-form-btn" aria-label="Submit newsletter"></button>
+              <label class="footer-checkbox-field">
+                <input type="checkbox" required />
+                <span class="footer-checkbox-label">I agree to the <a href="/privacy/" class="footer-checkbox-label-link">Privacy policy.</a></span>
+              </label>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-nav-grid">
+        <div class="footer-widget">
+          <h3 class="footer-widget-title">Quick links</h3>
+          <ul class="footer-nav-list">
+            {navData.map((entry) => (
+              <li class="footer-nav-list-item"><a href={entry.url} class="footer-nav-list-link">{entry.key}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div class="footer-widget">
+          <h3 class="footer-widget-title">Utilities</h3>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-list-item"><a href="/404/" class="footer-nav-list-link">404 page</a></li>
+            <li class="footer-nav-list-item"><a href="/changelog/" class="footer-nav-list-link">Changelog</a></li>
+            <li class="footer-nav-list-item"><a href="/style-guide/" class="footer-nav-list-link">Style guide</a></li>
+            <li class="footer-nav-list-item"><a href="/licenses/" class="footer-nav-list-link">License</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-widget">
+        <h3 class="footer-widget-title">Contact us</h3>
+        <div class="footer-contact-text">{BUSINESS.address.lineOne} {BUSINESS.address.lineTwo}, {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip}</div>
+        <div class="footer-link-block">
+          <a href={`tel:${BUSINESS.phoneForTel}`} class="footer-contact-link">{BUSINESS.phoneFormatted}</a>
+        </div>
+        <div class="footer-link-block">
+          <a href={`mailto:${BUSINESS.email}`} class="footer-contact-link">{BUSINESS.email}</a>
+        </div>
+        <div>
+          <ul class="footer-social-list">
+            <li class="footer-social-item"><a href={BUSINESS.socials.facebook} class="footer-social-item-link" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="#fff"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a></li>
+            <li class="footer-social-item"><a href={BUSINESS.socials.twitter} class="footer-social-item-link" aria-label="Twitter">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="#fff"><path d="M18.24 2.25h3.3l-7.22 8.26 8.5 11.24h-6.68l-5.22-6.83-5.96 6.83H.93l7.73-8.84L0 2.25h6.84l4.72 6.23 6.68-6.23zm-1.16 17.52h1.83L5.84 3.91H3.87l13.21 15.86z"/></svg>
+            </a></li>
+            <li class="footer-social-item"><a href={BUSINESS.socials.instagram} class="footer-social-item-link" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="#fff"><rect x="2" y="2" width="16" height="16" rx="5" stroke="#fff" stroke-width="1.5" fill="none"/><circle cx="10" cy="10" r="4" stroke="#fff" stroke-width="1.5" fill="none"/><circle cx="14.5" cy="5.5" r="1" fill="#fff"/></svg>
+            </a></li>
+            <li class="footer-social-item"><a href={BUSINESS.socials.linkedin} class="footer-social-item-link" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="#fff"><path d="M16 2a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V4a2 2 0 012-2h12zm-8 9H5v5h3v-5zm-.5-2.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM15 11c-.5-.5-1.2-.8-2-.8-1.7 0-3 1.3-3 3v3h3v-2.5c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5V17h3v-3c0-1.7-1.3-3-3-3z"/></svg>
+            </a></li>
+            <li class="footer-social-item"><a href={BUSINESS.socials.youtube} class="footer-social-item-link" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="#fff"><path d="M19.6 5.2c-.2-.7-.7-1.2-1.4-1.4C16.8 3.3 10 3.3 10 3.3s-6.8 0-8.2.5c-.7.2-1.2.7-1.4 1.4C0 6.6 0 10 0 10s0 3.4.4 4.8c.2.7.7 1.2 1.4 1.4 1.4.5 8.2.5 8.2.5s6.8 0 8.2-.5c.7-.2 1.2-.7 1.4-1.4.4-1.4.4-4.8.4-4.8s0-3.4-.4-4.8zM8 13V7l5.5 3-5.5 3z"/></svg>
+            </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-footer">
+      <div class="footer-copyright">
+        <div class="copyright">
+          <span class="copyright-text">Copyright @ 2025 designed by ThemetechMount - powered by Webflow</span>
+          <ul class="footer-nav">
+            <li class="footer-nav-item"><a href="/privacy/" class="footer-nav-link copyright-text">Privacy policy</a></li>
+            <li class="footer-nav-item"><a href="/terms/" class="footer-nav-link copyright-text">Terms & conditions</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style lang="less">
+  .footer {
+    background-color: var(--color-dark);
+    background-image: url('https://cdn.prod.website-files.com/6794757f3fefb734400e8445/67a09c45d6ac41f374cebac4_bg-img-01.avif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 100px;
+    position: relative;
+  }
+
+  .first-footer-grid {
+    display: grid;
+    grid-template-columns: 6fr 3fr 3fr;
+    gap: 80px;
+  }
+
+  .footer-newsletters-wrapper {
+    border-radius: 30px;
+    background-color: rgba(248, 248, 248, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+  }
+
+  .footer-newsletters-title {
+    color: var(--color-white);
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: var(--font-heading);
+  }
+
+  .footer-desc {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 15px;
+  }
+
+  .footer-from-block {
+    margin-top: 20px;
+  }
+
+  .footer-text-field {
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    color: var(--color-white);
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    height: 48px;
+    padding-left: 30px;
+    padding-right: 60px;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    &:focus {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .footer-form {
+    position: relative;
+  }
+
+  .footer-form-btn {
+    border-radius: 50%;
+    background-color: var(--color-skin);
+    width: 48px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all 0.3s;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 10h10M12 7l3 3-3 3' stroke='%23010127' stroke-width='2'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:hover {
+      background-color: var(--color-skin-2);
+      background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 10h10M12 7l3 3-3 3' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
+    }
+  }
+
+  .footer-checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 30px;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--color-skin-2);
+      cursor: pointer;
+    }
+  }
+
+  .footer-checkbox-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .footer-checkbox-label-link {
+    color: var(--color-white);
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--color-skin);
+    }
+  }
+
+  .footer-nav-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+
+  .footer-widget-title {
+    color: var(--color-white);
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 28px;
+    font-family: var(--font-heading);
+  }
+
+  .footer-nav-list {
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-nav-list-item {
+    margin-bottom: 12px;
+  }
+
+  .footer-nav-list-link {
+    font-family: var(--font-heading);
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s;
+
+    &:hover {
+      color: var(--color-skin);
+    }
+  }
+
+  .footer-contact-text {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+
+  .footer-link-block {
+    margin-top: 5px;
+  }
+
+  .footer-contact-link {
+    font-family: var(--font-heading);
+    color: var(--color-white);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    transition: all 0.3s;
+
+    &:hover {
+      color: var(--color-skin);
+    }
+  }
+
+  .footer-social-list {
+    display: flex;
+    gap: 22px;
+    flex-flow: wrap;
+    align-items: center;
+    margin-top: 30px;
+    padding: 0;
+  }
+
+  .footer-social-item-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50px;
+    border: 1px solid var(--color-dark);
+    background: transparent;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: translateY(-8px);
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .bottom-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 80px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .copyright-text {
+    font-family: var(--font-heading);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 20px;
+    border-left: 1px solid rgba(0, 21, 40, 0.8);
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  .footer-nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover {
+      color: var(--color-skin);
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .first-footer-grid {
+      grid-template-columns: 5fr;
+      gap: 40px;
+    }
+
+    .footer-nav-grid {
+      gap: 30px;
+    }
+
+    .copyright {
+      flex-flow: column;
+      gap: 5px;
+    }
+
+    .footer-nav {
+      border-left: 0;
+      padding-left: 0;
+    }
+
+    .footer {
+      padding-top: 60px;
+    }
+  }
+
+  @media screen and (max-width: 479px) {
+    .footer-newsletters-wrapper {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .footer-form-btn {
+      position: relative;
+    }
+  }
+</style>

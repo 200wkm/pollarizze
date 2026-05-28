@@ -1,0 +1,26 @@
+---
+// Utils
+import { getImage } from "astro:assets";
+
+// Components
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero/Hero.astro";
+import About from "@components/About/About.astro";
+import Features from "@components/Features/Features.astro";
+import Steps from "@components/Steps/Steps.astro";
+import Integration from "@components/Integration/Integration.astro";
+import Team from "@components/Team/Team.astro";
+import Blog from "@components/Blog/Blog.astro";
+import CTA from "@components/CTA/CTA.astro";
+---
+
+<BaseLayout title="Finivity Clone - Home 2" description="Get 5% cash back on every transaction. Join 37,000+ satisfied companies.">
+	<Hero />
+	<About />
+	<Features />
+	<Steps />
+	<Integration />
+	<Team />
+	<Blog />
+	<CTA />
+</BaseLayout>

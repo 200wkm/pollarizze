@@ -1,0 +1,85 @@
+---
+// About / Mission Section Component
+---
+
+<section class="about-info-section bg-grey section-padding">
+  <div class="container">
+    <div class="about-info-grid">
+      <div class="about-info-content-block">
+        <div class="section-title">
+          <div class="section-pretitle-box">
+            <svg class="pretitle-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#010127" stroke-width="1.5"/><path d="M6 9h6M9 6v6" stroke="#010127" stroke-width="1.5"/></svg>
+            <span class="pretitle-text">Our mission</span>
+          </div>
+          <h2 class="section-heading">Empowering your financial journey</h2>
+        </div>
+        <div class="section-desc">
+          <p>Lorem ipsum dolor sit amet consectetur. Sed malesuada venenatis habitasse amet vitae egestas massa pharetra. Vel pulvinar blandit fermentum nunc iaculis vulputate. Risus blandit sem congue fusce metus eu vitae. Sed malesuada venenatis habitasse amet vitae egestas massa pharetra. Vel pulvinar blandi.</p>
+        </div>
+        <ul class="about-info-list">
+          <li class="about-info-item">Empower smarter financial decisions through education and insights.</li>
+          <li class="about-info-item">Provide user-friendly platforms for managing budgets and investments.</li>
+          <li class="about-info-item">Foster financial growth for individuals and businesses alike.</li>
+        </ul>
+      </div>
+      <div class="single-image-block">
+        <img src="https://cdn.prod.website-files.com/6794757f3fefb734400e8445/679c5d684983352cd71ae989_ae5ded7f7a0e62e5132382fc95ea7a29_single-img-07.avif" alt="Mission" class="single-image" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="less">
+  .about-info-section {
+    &.bg-grey {
+      background-color: var(--color-grey);
+    }
+
+    &.section-padding {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+  }
+
+  .about-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .about-info-list {
+    padding-left: 18px;
+    margin: 0;
+  }
+
+  .about-info-item {
+    padding-top: 15px;
+    font-weight: 500;
+  }
+
+  .section-desc {
+    margin-top: 20px;
+  }
+
+  .single-image-block {
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  .single-image {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 991px) {
+    .about-info-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .about-info-section.section-padding {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+</style>

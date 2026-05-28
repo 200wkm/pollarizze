@@ -1,0 +1,263 @@
+---
+import { Icon } from "astro-icon/components";
+import { BUSINESS } from "@data/client";
+import navData from "@data/navData.json";
+---
+
+<header class="header-2">
+  <div class="header-content-wrapper-2">
+    <nav class="navbar-2" aria-label="Main navigation">
+      <div class="container">
+        <div class="site-navigration-2">
+          <a href="/" class="navbar-brand-block-2" aria-label="Finivity Home">
+            <svg class="nav-logo-2" viewBox="0 0 120 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="35" height="35" rx="8" fill="#010127"/>
+              <path d="M10 10h6v15h-6zM19 10h6v15h-6z" fill="#edff81"/>
+              <text x="40" y="24" font-family="Rethink Sans" font-weight="700" font-size="18" fill="#010127">Finivity</text>
+            </svg>
+          </a>
+          <div class="nav-menu-block">
+            <nav class="nav-2-menu-block" id="nav-menu">
+              {navData.map((entry) => (
+                <a href={entry.url} class="nav-link-2">{entry.key}</a>
+              ))}
+            </nav>
+            <div class="header-extra">
+              <div class="cart-block">
+                <a href="#" class="cart-button" aria-label="Cart">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#010127" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </a>
+              </div>
+              <a href="/contact/" class="btn-block btn-block1 header-btn">
+                <span class="btn-text-block">Get started free</span>
+              </a>
+              <button class="nav-2-menu-button" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <div class="hamburger-icon">
+                  <span></span><span></span><span></span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- Mobile overlay menu -->
+  <div class="mobile-nav-overlay" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-content">
+      {navData.map((entry) => (
+        <a href={entry.url} class="mobile-nav-link">{entry.key}</a>
+      ))}
+      <a href="/contact/" class="btn-block btn-block1 mobile-nav-btn">
+        <span class="btn-text-block">Get started free</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("menu-toggle");
+    const mobileNav = document.getElementById("mobile-nav");
+    const hamburger = toggle?.querySelector(".hamburger-icon");
+
+    if (toggle && mobileNav) {
+      toggle.addEventListener("click", () => {
+        const isOpen = mobileNav.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", String(isOpen));
+        mobileNav.setAttribute("aria-hidden", String(!isOpen));
+        hamburger?.classList.toggle("is-active");
+        document.body.style.overflow = isOpen ? "hidden" : "";
+      });
+
+      // Close on link click
+      mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileNav.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded", "false");
+          mobileNav.setAttribute("aria-hidden", "true");
+          hamburger?.classList.remove("is-active");
+          document.body.style.overflow = "";
+        });
+      });
+    }
+  });
+</script>
+
+<style lang="less">
+  .header-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+
+  .header-content-wrapper-2 {
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .navbar-2 {
+    background-color: transparent;
+  }
+
+  .site-navigration-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  }
+
+  .navbar-brand-block-2 {
+    display: inline-block;
+  }
+
+  .nav-logo-2 {
+    height: 35px;
+  }
+
+  .nav-menu-block {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .nav-2-menu-block {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link-2 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    padding: 20px 15px;
+    font-weight: 500;
+    transition: all 0.3s;
+
+    &:hover {
+      color: var(--color-skin-2);
+      text-decoration: underline;
+    }
+  }
+
+  .header-extra {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cart-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: transparent;
+  }
+
+  .header-btn .btn-block {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .nav-2-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: all 0.3s;
+
+    span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: var(--color-dark);
+      transition: all 0.3s;
+    }
+
+    &.is-active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+  }
+
+  /* Mobile overlay */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-dark);
+    z-index: 99;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &.is-open {
+      display: flex;
+      opacity: 1;
+    }
+  }
+
+  .mobile-nav-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .mobile-nav-link {
+    font-family: var(--font-heading);
+    color: var(--color-white);
+    font-size: 28px;
+    font-weight: 600;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--color-skin);
+    }
+  }
+
+  .mobile-nav-btn {
+    margin-top: 20px;
+  }
+
+  @media screen and (max-width: 991px) {
+    .nav-2-menu-button {
+      display: block;
+      z-index: 101;
+      position: relative;
+    }
+
+    .nav-menu-block {
+      gap: 20px;
+    }
+
+    .nav-2-menu-block {
+      display: none;
+    }
+
+    .header-btn {
+      display: none;
+    }
+  }
+</style>
